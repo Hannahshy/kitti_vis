@@ -77,6 +77,8 @@ if __name__ == "__main__":
     point_cloud.paint_uniform_color([0, 121/255, 89/255])
     vis.add_geometry(point_cloud)
     render_option = vis.get_render_option()
+    if render_option is None:
+        raise RuntimeError("Failed to get render option from visualizer")
     render_option.line_width = 4
 
     for obj_index in range(len(obj)):
